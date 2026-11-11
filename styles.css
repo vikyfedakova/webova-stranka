@@ -675,8 +675,18 @@ h1 {
 
 .about-inner {
   display: grid;
-  grid-template-columns: 1fr 0.8fr;
-  gap: 13%;
+  grid-template-columns: minmax(0, 0.72fr) minmax(0, 1fr) minmax(0, 0.85fr);
+  align-items: center;
+  gap: 6%;
+}
+
+.about-photo {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 4px;
+  background: var(--mist);
+  object-fit: cover;
 }
 
 .about-heading .eyebrow {
@@ -845,7 +855,24 @@ h1 {
   }
 
   .about-inner {
-    gap: 8%;
+    grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+    gap: 26px 8%;
+  }
+
+  .about-photo {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  .about-heading {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: end;
+  }
+
+  .about-copy {
+    grid-column: 2;
+    grid-row: 2;
   }
 }
 
@@ -1041,8 +1068,15 @@ h1 {
     gap: 31px;
   }
 
+  .about-photo,
+  .about-heading,
   .about-copy {
-    max-width: 500px;
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .about-photo {
+    width: min(100%, 360px);
   }
 
   .about-lead {
